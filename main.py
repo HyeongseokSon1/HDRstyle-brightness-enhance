@@ -4,8 +4,20 @@ import PIL.Image
 import shutil, os
 import dataload
 import scipy.misc
+from argparse import ArgumentParser
 
-mode = 'test'
+def build_parser():
+    parser = ArgumentParser()
+    parser.add_argument('--mode',
+        dest='mode',required=True)    
+    parser.add_argument('--input',
+        dest='input',required=True)
+    return parser
+
+parser = build_parser()
+options = parser.parse_args()
+
+mode = options.mode
 batch_size = 16
 x_pattern = '/home/sonhs/data1/5K_small/expertC/*'
 y1_pattern = '/home/sonhs/data1/5K_small/results/*'
@@ -36,8 +48,8 @@ if mode == 'train':
     c_ = 3
 
 
-if mode == 'test':
-    img = PIL.Image.open("images/input.png")
+if mode == 'test':    
+    img = PIL.Image.open(options.input)
     batch_size = 1
     w_, h_ = img.size
     #h_ = h_ - (h_%32)
