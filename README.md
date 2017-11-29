@@ -3,10 +3,10 @@
 Tensorflow implementation for learning an image-to-image color enhancement using GAN structure (semi-supervised).
 
 For image example:
-![example](/images/example.jpg)
+![example](docs/images/example.jpg)
 
 Network structure looks:
-![network_structure](/image/network.jpg)
+![network_structure](docs/images/network.jpg)
 
 This repository contains train and test codes for reproduce.
 However, a description for training will be updated later.
@@ -29,8 +29,6 @@ cd HDRstyle-brightness-enhance
 ```
 
 ## Test Details
-To train a model,  
-
 ```bash
-CUDA_VISIBLE_DEVICES=0 python main.py --input=input_name --phase=test
-``
+CUDA_VISIBLE_DEVICES=0 python main.py --input=/path/to/data/input_name  --mode=test
+```
